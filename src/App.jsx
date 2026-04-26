@@ -51,6 +51,13 @@ export default function Portfolio() {
       stack: ["Java", "Spring Boot"],
       link: "#",
     },
+    {
+      title: "ERP Product Automation System",
+      description:
+        "Built an automated product pipeline between supplier API and ERP, including intelligent upsert logic, SKU mapping, NCM handling, and media integration, reducing manual work and enabling scalable operations.",
+      stack: ["n8n", "REST API", "OAuth2", "Bling API"],
+      link: "#",
+    }
   ];
 
   return (
