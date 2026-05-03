@@ -186,7 +186,7 @@ function App() {
       <div style={styles.container}>
         <aside style={styles.sidebar}>
           <div>
-            <h1 style={styles.name}>Yago Alves</h1>
+            <h1 style={styles.name}>Yago Alves Carvalho</h1>
             <h2 style={styles.role}>{t.role}</h2>
 
             <div style={styles.avatarWrapper}>
