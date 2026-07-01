@@ -6,8 +6,7 @@ import serviceHub from "./assets/servicehub-api.png";
 import work1 from "./assets/work1.png";
 
 function App() {
-  const [activeSection, setActiveSection] = useState("about");
-  const [activeProject, setActiveProject] = useState(0);
+  const [activeSection, setActiveSection] = useState("home");
   const [lang, setLang] = useState("pt");
 
   const whatsappNumber = "5524981182297";
@@ -23,201 +22,79 @@ function App() {
 
   const content = {
     pt: {
-      eyebrow: "Portfólio / Desenvolvimento / Automação",
-      role: "Full Stack Developer",
-      intro:
-        "Construo interfaces, sistemas web e automações que conectam ideias a produtos reais.",
-      about: "Sobre",
+      role: "Desenvolvedor Full Stack",
+      eyebrow: "Front-end / Automações / Produtos digitais",
+      description:
+        "Construo aplicações modernas, automações inteligentes e soluções digitais com foco em performance, usabilidade e resultado.",
+      home: "Início",
+      expertise: "Expertise",
+      work: "Projetos",
       experience: "Experiência",
-      projects: "Projetos",
       contact: "Contato",
-      location: "Brasil / remoto",
-      availability: "Disponível para projetos selecionados",
-      email: "github.com/YagoACarvalho",
-      aboutLead:
-        "Desenvolvedor focado em experiências digitais limpas, sistemas práticos e automações que resolvem problemas de negócio.",
+      heroTitleA: "Yago Alves",
+      heroTitleB: "Carvalho",
+      heroText:
+        "Transformo ideias em interfaces, sistemas e fluxos automatizados que resolvem problemas reais para negócios reais.",
       about1:
-        "Gosto de transformar ideias em produtos funcionais: landing pages, dashboards, integrações com APIs, bancos de dados e fluxos de atendimento com inteligência artificial.",
+        "Sou desenvolvedor com interesse em criar sistemas que resolvem problemas reais. Gosto de transformar ideias em produtos digitais funcionais, desde landing pages e dashboards até integrações com APIs, automações e bancos de dados.",
       about2:
-        "Hoje trabalho principalmente com React, JavaScript, Spring Boot, PostgreSQL, Supabase, n8n e integrações com WhatsApp.",
-      servicesTitle: "Atuação",
-      stackTitle: "Stack",
-      statusTitle: "Status",
-      projectLink: "Abrir projeto",
-      privateProject: "Fluxo privado",
-      contactTitle: "Vamos construir algo real?",
+        "Atualmente venho desenvolvendo projetos com React, JavaScript, Spring Boot, PostgreSQL, Supabase, n8n e integrações com WhatsApp.",
+      selectedWork: "Trabalhos selecionados",
+      workIntro:
+        "Uma seleção de projetos web, APIs e automações criadas com foco em utilidade, clareza e execução.",
       contactText:
-        "Estou aberto para projetos, parcerias e oportunidades em desenvolvimento, automação e criação de soluções digitais.",
+        "Estou aberto para projetos, parcerias e oportunidades na área de desenvolvimento, automação e criação de soluções digitais.",
       button: "Falar no WhatsApp",
-      footer: "Desenvolvido por Yago Carvalho",
+      projectLink: "Ver projeto",
+      featured: "Projeto em destaque",
+      inProgress: "Em desenvolvimento",
+      quote:
+        "Meu foco é simples: criar soluções que funcionam bem, parecem profissionais e fazem sentido para o negócio.",
+      availability: "Disponível para projetos selecionados",
     },
     en: {
-      eyebrow: "Portfolio / Development / Automation",
       role: "Full Stack Developer",
-      intro:
-        "I build interfaces, web systems and automations that turn ideas into real products.",
-      about: "About",
+      eyebrow: "Front-end / Automations / Digital products",
+      description:
+        "I build modern applications, smart automations, and digital solutions focused on performance, usability, and results.",
+      home: "Home",
+      expertise: "Expertise",
+      work: "Work",
       experience: "Experience",
-      projects: "Projects",
       contact: "Contact",
-      location: "Brazil / remote",
-      availability: "Available for selected projects",
-      email: "github.com/YagoACarvalho",
-      aboutLead:
-        "Developer focused on refined digital experiences, practical systems and automations that solve business problems.",
+      heroTitleA: "Yago Alves",
+      heroTitleB: "Carvalho",
+      heroText:
+        "I turn ideas into interfaces, systems, and automated workflows that solve real problems for real businesses.",
       about1:
-        "I like turning ideas into functional products: landing pages, dashboards, API integrations, databases and AI-powered customer workflows.",
+        "I am a developer interested in building systems that solve real problems. I like turning ideas into functional digital products, from landing pages and dashboards to API integrations, automations, and databases.",
       about2:
-        "I currently work mainly with React, JavaScript, Spring Boot, PostgreSQL, Supabase, n8n and WhatsApp integrations.",
-      servicesTitle: "Services",
-      stackTitle: "Stack",
-      statusTitle: "Status",
-      projectLink: "Open project",
-      privateProject: "Private workflow",
-      contactTitle: "Let’s build something real?",
+        "I currently build projects with React, JavaScript, Spring Boot, PostgreSQL, Supabase, n8n, and WhatsApp integrations.",
+      selectedWork: "Selected work",
+      workIntro:
+        "A selection of web projects, APIs, and automations built with utility, clarity, and execution in mind.",
       contactText:
-        "I am open to projects, partnerships and opportunities in development, automation and digital solutions.",
+        "I am open to projects, partnerships, and opportunities in development, automation, and digital solutions.",
       button: "Message me on WhatsApp",
-      footer: "Developed by Yago Carvalho",
+      projectLink: "View project",
+      featured: "Featured project",
+      inProgress: "In progress",
+      quote:
+        "My focus is simple: build solutions that work well, look professional, and make sense for the business.",
+      availability: "Available for selected projects",
     },
   };
 
   const t = content[lang];
 
-  const navItems = [
-    { id: "about", label: t.about },
-    { id: "experience", label: t.experience },
-    { id: "projects", label: t.projects },
-    { id: "contact", label: t.contact },
-  ];
-
-  const services =
-    lang === "pt"
-      ? [
-          "Direção técnica",
-          "Front-end development",
-          "Automações com IA",
-          "Integrações com APIs",
-        ]
-      : [
-          "Technical direction",
-          "Front-end development",
-          "AI automations",
-          "API integrations",
-        ];
-
-  const stack = [
-    "React",
-    "JavaScript",
-    "Spring Boot",
-    "PostgreSQL",
-    "Supabase",
-    "n8n",
-    "Redis",
-    "WhatsApp API",
-  ];
-
-  const experiences = [
-    {
-      year: "2025 — Atual",
-      title:
-        lang === "pt"
-          ? "Desenvolvedor Web e Automação"
-          : "Web Developer & Automation",
-      company:
-        lang === "pt"
-          ? "Projetos próprios e clientes"
-          : "Personal and client projects",
-      description:
-        lang === "pt"
-          ? "Criação de sites, landing pages, sistemas web, automações, integrações com APIs e soluções digitais voltadas para negócios reais."
-          : "Development of websites, landing pages, web systems, automations, API integrations and digital solutions for real businesses.",
-      tags: ["React", "JavaScript", "n8n", "Supabase", "APIs"],
-    },
-    {
-      year: "2024 — Atual",
-      title: "Software Engineering Student",
-      company: "UniCesumar",
-      description:
-        lang === "pt"
-          ? "Formação em Engenharia de Software, com foco em programação, banco de dados, orientação a objetos e desenvolvimento de sistemas."
-          : "Software Engineering degree focused on programming, databases, object-oriented programming and system development.",
-      tags: ["Java", "Spring Boot", "PostgreSQL", "Docker"],
-    },
-  ];
-
-  const projects = [
-    {
-      year: "2026",
-      title: "Caio Carvalho Advocacia",
-      displayTitle: ["Caio", "Carvalho"],
-      image: caioCarvalho,
-      category: "Web Project",
-      description:
-        lang === "pt"
-          ? "Site institucional desenvolvido para um advogado, com identidade visual sóbria, layout premium, navegação por áreas de atuação e chamadas estratégicas para WhatsApp."
-          : "Institutional website developed for a lawyer, featuring a sober visual identity, premium layout, practice-area navigation and strategic WhatsApp calls to action.",
-      tags: ["React", "Vercel", "UI Design", "Responsive"],
-      link: "https://caiocarvalhoadv.vercel.app/",
-    },
-    {
-      year: "2026",
-      title: "Work1 – Service Marketplace",
-      displayTitle: ["Work1", "Marketplace"],
-      image: work1,
-      category: "Full Stack Platform",
-      status: lang === "pt" ? "Em desenvolvimento" : "In progress",
-      description:
-        lang === "pt"
-          ? "Plataforma web para conexão entre clientes e prestadores de serviços locais. Integra frontend em React com automações via n8n para processamento, armazenamento e distribuição inteligente dos leads."
-          : "Web platform connecting clients with local service providers. It integrates a React frontend with n8n workflows for processing, storage and intelligent lead distribution.",
-      tags: ["React", "n8n", "Supabase", "Automation", "Marketplace"],
-      link: "https://workonejobs.vercel.app/",
-    },
-    {
-      year: "2026",
-      title: "WhatsApp Intelligent Agent",
-      displayTitle: ["WhatsApp", "Agent"],
-      image: whatsappAgent,
-      category: "Automation & AI",
-      description:
-        lang === "pt"
-          ? "Sistema de atendimento automatizado com agente inteligente para qualificação de leads via WhatsApp, controle anti-loop, fila de lembretes e organização por nível de interesse."
-          : "Automated customer service system with an intelligent agent for WhatsApp lead qualification, anti-loop control, reminder queue and interest-level organization.",
-      tags: [
-        "n8n",
-        "Redis",
-        "LangChain",
-        "Supabase",
-        "MySQL",
-        "Evolution API",
-      ],
-      link: "#",
-    },
-    {
-      year: "2026",
-      title: "ServiceHub API",
-      displayTitle: ["Service", "Hub API"],
-      image: serviceHub,
-      category: "Backend API",
-      status: lang === "pt" ? "Em desenvolvimento" : "In progress",
-      description:
-        lang === "pt"
-          ? "API backend para marketplace de serviços, responsável por gerenciar usuários, prestadores e solicitações em uma arquitetura REST organizada e escalável."
-          : "Backend API for a service marketplace, managing users, providers and requests through a clean and scalable REST architecture.",
-      tags: ["Java", "Spring Boot", "REST API", "PostgreSQL"],
-      link: "https://github.com/YagoACarvalho/ServiceHubAPIs",
-    },
-  ];
-
   useEffect(() => {
-    const sections = document.querySelectorAll("section[data-section]");
+    const sections = document.querySelectorAll("section[id]");
 
     function handleScroll() {
-      let current = "about";
+      let current = "home";
 
       sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 180;
+        const sectionTop = section.offsetTop - 140;
         if (window.scrollY >= sectionTop) {
           current = section.getAttribute("id");
         }
@@ -232,220 +109,354 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return (
-    <main className="vh-page">
-      <style>{css}</style>
-      <div className="vh-noise" aria-hidden="true" />
+  const navItems = [
+    { id: "home", label: t.home },
+    { id: "expertise", label: t.expertise },
+    { id: "work", label: t.work },
+    { id: "experience", label: t.experience },
+    { id: "contact", label: t.contact },
+  ];
 
-      <header className="vh-header">
-        <a className="vh-logo" href="#top" aria-label="Yago Carvalho home">
-          <span>YAGO</span>
-          <span>CAR</span>
-          <span>VALHO</span>
+  const expertise = [
+    {
+      number: "01",
+      title: lang === "pt" ? "Software" : "Software",
+      subtitle: lang === "pt" ? "Development" : "Development",
+      description:
+        lang === "pt"
+          ? "Criação de sistemas web, dashboards, APIs e produtos digitais com estrutura limpa e foco em evolução."
+          : "Development of web systems, dashboards, APIs, and digital products with clean structure and room to scale.",
+      stack: ["React", "JavaScript", "Java", "Spring Boot"],
+    },
+    {
+      number: "02",
+      title: "Frontend",
+      subtitle: lang === "pt" ? "UI Engineering" : "UI Engineering",
+      description:
+        lang === "pt"
+          ? "Interfaces responsivas com atenção a hierarquia visual, performance e experiência de uso."
+          : "Responsive interfaces with attention to visual hierarchy, performance, and user experience.",
+      stack: ["React", "Vite", "Tailwind", "Vercel"],
+    },
+    {
+      number: "03",
+      title: lang === "pt" ? "Automação" : "Automation",
+      subtitle: lang === "pt" ? "AI Workflows" : "AI Workflows",
+      description:
+        lang === "pt"
+          ? "Fluxos inteligentes com WhatsApp, CRM, bancos de dados, agentes e integrações entre ferramentas."
+          : "Smart workflows with WhatsApp, CRM, databases, agents, and tool integrations.",
+      stack: ["n8n", "Supabase", "Redis", "APIs"],
+    },
+  ];
+
+  const experiences = [
+    {
+      year: "2025 — Atual",
+      title:
+        lang === "pt"
+          ? "Desenvolvedor Web e Automação"
+          : "Web Developer & Automation",
+      company:
+        lang === "pt"
+          ? "Projetos próprios e clientes"
+          : "Personal and client projects",
+      location: lang === "pt" ? "Brasil / Remoto" : "Brazil / Remote",
+      description:
+        lang === "pt"
+          ? "Criação de sites, landing pages, sistemas web, automações, integrações com APIs e soluções digitais voltadas para negócios reais."
+          : "Development of websites, landing pages, web systems, automations, API integrations, and digital solutions for real businesses.",
+      tags: ["React", "JavaScript", "n8n", "Supabase", "APIs"],
+    },
+    {
+      year: "2024 — Atual",
+      title:
+        lang === "pt"
+          ? "Estudante de Engenharia de Software"
+          : "Software Engineering Student",
+      company: "UniCesumar",
+      location: lang === "pt" ? "Graduação" : "Degree program",
+      description:
+        lang === "pt"
+          ? "Formação em Engenharia de Software, com foco em programação, banco de dados, orientação a objetos e desenvolvimento de sistemas."
+          : "Software Engineering degree focused on programming, databases, object-oriented programming, and system development.",
+      tags: ["Java", "Spring Boot", "PostgreSQL", "Docker"],
+    },
+  ];
+
+  const projects = [
+    {
+      title: "Caio Carvalho Advocacia",
+      image: caioCarvalho,
+      category: "Web Project",
+      description:
+        lang === "pt"
+          ? "Site institucional desenvolvido para um advogado, com identidade visual sóbria, layout premium, navegação por áreas de atuação e chamadas estratégicas para WhatsApp."
+          : "Institutional website developed for a lawyer, with a sober visual identity, premium layout, practice-area navigation, and strategic WhatsApp calls to action.",
+      tags: ["React", "Vercel", "UI Design", "Responsive"],
+      link: "https://caiocarvalhoadv.vercel.app/",
+    },
+    {
+      title: "Work1 – Service Marketplace",
+      image: work1,
+      category: "Full Stack Platform",
+      status: true,
+      description:
+        lang === "pt"
+          ? "Plataforma web para conexão entre clientes e prestadores de serviços locais, com frontend em React e automações via n8n para processamento e distribuição dos leads."
+          : "Web platform connecting clients with local service providers, with a React frontend and n8n workflows for lead processing and distribution.",
+      tags: ["React", "n8n", "Supabase", "Automation", "Marketplace"],
+      link: "https://workonejobs.vercel.app/",
+    },
+    {
+      title: "WhatsApp Intelligent Agent",
+      image: whatsappAgent,
+      category: "Automation & AI",
+      description:
+        lang === "pt"
+          ? "Sistema de atendimento automatizado com agente inteligente para qualificação de leads via WhatsApp, fila de lembretes e controle anti-loop."
+          : "Automated customer service system with an intelligent agent for WhatsApp lead qualification, reminder queue, and anti-loop control.",
+      tags: ["n8n", "Redis", "LangChain", "Supabase", "Evolution API"],
+      link: "#",
+    },
+    {
+      title: "ServiceHub API",
+      image: serviceHub,
+      category: "Backend API",
+      status: true,
+      description:
+        lang === "pt"
+          ? "API backend para marketplace de serviços, responsável por gerenciar usuários, prestadores e solicitações com arquitetura REST."
+          : "Backend API for a service marketplace, managing users, providers, and service requests with REST architecture.",
+      tags: ["Java", "Spring Boot", "REST API", "PostgreSQL"],
+      link: "https://github.com/YagoACarvalho/ServiceHubAPIs",
+    },
+  ];
+
+  return (
+    <main className="portfolio-shell">
+      <style>{css}</style>
+
+      <div className="noise" />
+      <div className="orb orb-one" />
+      <div className="orb orb-two" />
+
+      <header className="site-header">
+        <a className="brand" href="#home" aria-label="Go to home">
+          <span>Y</span>
+          <span>C</span>
         </a>
 
-        <nav className="vh-nav" aria-label="Primary navigation">
+        <nav className="main-nav" aria-label="Main navigation">
           {navItems.map((item, index) => (
             <a
               key={item.id}
-              className={activeSection === item.id ? "is-active" : ""}
               href={`#${item.id}`}
+              className={activeSection === item.id ? "nav-link active" : "nav-link"}
             >
               <span>{String(index + 1).padStart(2, "0")}</span>
-              {item.label}
+              // {item.label}
             </a>
           ))}
         </nav>
 
-        <button
-          className="vh-lang"
-          onClick={() => setLang(lang === "pt" ? "en" : "pt")}
-          type="button"
-        >
+        <button className="lang-button" onClick={() => setLang(lang === "pt" ? "en" : "pt")}>
           {lang === "pt" ? "EN" : "PT"}
         </button>
       </header>
 
-      <section className="vh-hero" id="top">
-        <div className="vh-heroIntro">
-          <p>{t.eyebrow}</p>
-          <h1>{t.role}</h1>
-          <p>{t.intro}</p>
-        </div>
+      <section id="home" className="hero section-block">
+        <div className="hero-copy">
+          <p className="eyebrow">// {t.eyebrow}</p>
+          <h1>
+            <span>{t.heroTitleA}</span>
+            <span>{t.heroTitleB}</span>
+          </h1>
+          <h2>{t.role}</h2>
+          <p className="hero-text">{t.heroText}</p>
 
-        <div className="vh-projectIndex" aria-label="Featured project index">
-          {projects.map((project, index) => (
-            <a
-              className={`vh-projectLine ${activeProject === index ? "is-current" : ""}`}
-              href="#projects"
-              key={project.title}
-              onFocus={() => setActiveProject(index)}
-              onMouseEnter={() => setActiveProject(index)}
-            >
-              <span className="vh-projectYear">{project.year} /</span>
-              <span className="vh-projectName">
-                {project.displayTitle.map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
-              </span>
+          <div className="hero-actions">
+            <a href="#work" className="primary-link">
+              {t.selectedWork}
             </a>
-          ))}
+            <a href={whatsappLink} target="_blank" rel="noreferrer" className="secondary-link">
+              {t.button}
+            </a>
+          </div>
         </div>
 
-        <div className="vh-previewCard" aria-hidden="true">
-          <img src={projects[activeProject].image} alt="" />
-        </div>
-
-        <div className="vh-bottomMeta">
-          <p>
-            Studio of Yago Carvalho
-            <br />
-            {t.role}
-          </p>
-          <p>
-            {t.location}
-            <br />
+        <aside className="hero-panel" aria-label="Profile summary">
+          <div className="portrait-card">
+            <img src={profile} alt="Yago Alves Carvalho" />
+          </div>
+          <div className="availability-card">
+            <span className="pulse" />
             {t.availability}
-          </p>
-          <a href="https://github.com/YagoACarvalho" target="_blank" rel="noreferrer">
-            {t.email}
-          </a>
-        </div>
+          </div>
+          <div className="mini-terminal">
+            <p>const builder = &#123;</p>
+            <p>&nbsp;&nbsp;stack: ["React", "n8n", "APIs"],</p>
+            <p>&nbsp;&nbsp;focus: "real business problems"</p>
+            <p>&#125;;</p>
+          </div>
+        </aside>
       </section>
 
-      <section className="vh-section vh-about" id="about" data-section>
-        <div className="vh-sectionLabel">01 — {t.about}</div>
+      <section id="expertise" className="section-block expertise-section">
+        <SectionTitle eyebrow="// expertise" title={t.expertise} />
 
-        <div className="vh-aboutLead">
-          <h2>{t.aboutLead}</h2>
-          <p>{t.about1}</p>
-          <p>{t.about2}</p>
-        </div>
-
-        <div className="vh-infoPanel">
-          <img src={profile} alt="Yago Alves Carvalho" />
-
-          <InfoBlock title={t.statusTitle} items={[t.availability, t.location]} />
-          <InfoBlock title={t.servicesTitle} items={services} />
-          <InfoBlock title={t.stackTitle} items={stack} />
-        </div>
-      </section>
-
-      <section className="vh-section" id="experience" data-section>
-        <div className="vh-sectionLabel">02 — {t.experience}</div>
-        <div className="vh-experienceList">
-          {experiences.map((experience) => (
-            <ExperienceCard key={experience.title} {...experience} />
+        <div className="expertise-grid">
+          {expertise.map((item) => (
+            <article className="expertise-card" key={item.number}>
+              <span className="card-number">{item.number}</span>
+              <h3>
+                <span>{item.title}</span>
+                <span>{item.subtitle}</span>
+              </h3>
+              <p>{item.description}</p>
+              <div className="tag-row">
+                {item.stack.map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
+
+        <blockquote className="quote-card">“{t.quote}”</blockquote>
       </section>
 
-      <section className="vh-section" id="projects" data-section>
-        <div className="vh-sectionLabel">03 — {t.projects}</div>
-        <div className="vh-cases">
-          {projects.map((project, index) => (
-            <ProjectCard
+      <section id="work" className="section-block work-section">
+        <div className="work-intro">
+          <SectionTitle eyebrow="// work" title={t.selectedWork} />
+          <p>{t.workIntro}</p>
+        </div>
+
+        <FeaturedProject project={projects[0]} projectLink={t.projectLink} featured={t.featured} />
+
+        <div className="project-list">
+          {projects.slice(1).map((project, index) => (
+            <ProjectRow
               key={project.title}
-              {...project}
-              number={String(index + 1).padStart(2, "0")}
+              project={project}
+              number={String(index + 2).padStart(2, "0")}
               projectLink={t.projectLink}
-              privateProject={t.privateProject}
+              inProgress={t.inProgress}
             />
           ))}
         </div>
       </section>
 
-      <section className="vh-section vh-contact" id="contact" data-section>
-        <div className="vh-sectionLabel">04 — {t.contact}</div>
-        <h2>{t.contactTitle}</h2>
-        <p>{t.contactText}</p>
-        <a className="vh-cta" href={whatsappLink} target="_blank" rel="noreferrer">
-          {t.button}
-        </a>
+      <section id="experience" className="section-block experience-section">
+        <SectionTitle eyebrow="// experience" title={t.experience} />
+
+        <div className="experience-list">
+          {experiences.map((exp) => (
+            <ExperienceCard key={exp.title} {...exp} />
+          ))}
+        </div>
       </section>
 
-      <footer className="vh-footer">
-        <span>{t.footer}</span>
-        <span>React / Vite / 2026</span>
-      </footer>
+      <section id="contact" className="section-block contact-section">
+        <p className="eyebrow">// contact</p>
+        <h2>{t.contactText}</h2>
+        <a href={whatsappLink} target="_blank" rel="noreferrer" className="contact-button">
+          {t.button}
+        </a>
+
+        <div className="socials">
+          <a href="https://github.com/YagoACarvalho" target="_blank" rel="noreferrer">
+            Github
+          </a>
+          <a href="#" target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
+          <a href="#" target="_blank" rel="noreferrer">
+            Instagram
+          </a>
+        </div>
+      </section>
     </main>
   );
 }
 
-function InfoBlock({ title, items }) {
+function SectionTitle({ eyebrow, title }) {
   return (
-    <div className="vh-infoBlock">
-      <h3>{title} —</h3>
-      <ul>
-        {items.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
+    <div className="section-title">
+      <p>{eyebrow}</p>
+      <h2>{title}</h2>
     </div>
   );
 }
 
-function ExperienceCard({ year, title, company, description, tags }) {
+function FeaturedProject({ project, projectLink, featured }) {
   return (
-    <article className="vh-experienceCard">
-      <span>{year}</span>
-      <div>
-        <h3>{title}</h3>
-        <p className="vh-company">{company}</p>
-        <p>{description}</p>
-        <div className="vh-tags">
-          {tags.map((tag) => (
+    <article className="featured-project">
+      <div className="featured-image">
+        <img src={project.image} alt={project.title} />
+      </div>
+
+      <div className="featured-content">
+        <p className="eyebrow">// {featured}</p>
+        <h3>{project.title}</h3>
+        <p>{project.description}</p>
+        <div className="tag-row">
+          {project.tags.map((tag) => (
             <span key={tag}>{tag}</span>
           ))}
         </div>
+        <a href={project.link} target="_blank" rel="noreferrer" className="project-cta">
+          {projectLink} <span>↗</span>
+        </a>
       </div>
     </article>
   );
 }
 
-function ProjectCard({
-  number,
-  title,
-  image,
-  category,
-  description,
-  tags,
-  link,
-  projectLink,
-  privateProject,
-  status,
-}) {
-  const hasLiveLink = link && link !== "#";
-
+function ProjectRow({ project, number, projectLink, inProgress }) {
   return (
-    <article className="vh-caseCard">
-      <div className="vh-caseMedia">
-        <img src={image} alt={title} />
+    <article className="project-row">
+      <span className="project-number">{number}</span>
+
+      <div className="project-thumb">
+        <img src={project.image} alt={project.title} />
       </div>
 
-      <div className="vh-caseContent">
-        <div className="vh-caseTopline">
-          <span>{number}</span>
-          <span>{category}</span>
-          {status && <span>{status}</span>}
+      <div className="project-info">
+        <div className="project-meta">
+          <span>{project.category}</span>
+          {project.status && <span>{inProgress}</span>}
         </div>
+        <h3>{project.title}</h3>
+        <p>{project.description}</p>
+        <div className="tag-row compact">
+          {project.tags.map((tag) => (
+            <span key={tag}>{tag}</span>
+          ))}
+        </div>
+      </div>
 
+      <a href={project.link} target="_blank" rel="noreferrer" className="row-link">
+        {projectLink} ↗
+      </a>
+    </article>
+  );
+}
+
+function ExperienceCard({ year, title, company, location, description, tags }) {
+  return (
+    <article className="experience-card">
+      <div className="experience-date">{year}</div>
+      <div className="experience-copy">
         <h3>{title}</h3>
-        <p>{description}</p>
-
-        <div className="vh-tags">
+        <p className="company">{company}</p>
+        <p className="location">{location}</p>
+        <p className="experience-description">{description}</p>
+        <div className="tag-row compact">
           {tags.map((tag) => (
             <span key={tag}>{tag}</span>
           ))}
         </div>
-
-        {hasLiveLink ? (
-          <a className="vh-caseLink" href={link} target="_blank" rel="noreferrer">
-            {projectLink}
-          </a>
-        ) : (
-          <span className="vh-caseLink vh-caseLinkDisabled">{privateProject}</span>
-        )}
       </div>
     </article>
   );
@@ -453,13 +464,15 @@ function ProjectCard({
 
 const css = `
   :root {
-    --vh-bg: #4700ff;
-    --vh-bg-deep: #240072;
-    --vh-ink: #06030b;
-    --vh-paper: #f7f4ee;
-    --vh-soft: rgba(247, 244, 238, 0.72);
-    --vh-muted: rgba(6, 3, 11, 0.56);
-    --vh-line: rgba(6, 3, 11, 0.22);
+    --bg: #080808;
+    --bg-soft: #101010;
+    --text: #f3efe7;
+    --muted: #a59f94;
+    --line: rgba(243, 239, 231, 0.14);
+    --accent: #c6ff41;
+    --accent-soft: rgba(198, 255, 65, 0.12);
+    --orange: #ff8a3d;
+    --max: 1180px;
   }
 
   * {
@@ -468,687 +481,780 @@ const css = `
 
   html {
     scroll-behavior: smooth;
+    background: var(--bg);
   }
 
   body {
     margin: 0;
+    background: var(--bg);
   }
 
-  body::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  body::-webkit-scrollbar-track {
-    background: var(--vh-bg-deep);
-  }
-
-  body::-webkit-scrollbar-thumb {
-    background: var(--vh-paper);
-  }
-
-  ::selection {
-    background: var(--vh-paper);
-    color: var(--vh-bg);
-  }
-
-  .vh-page {
+  .portfolio-shell {
     min-height: 100vh;
+    background:
+      radial-gradient(circle at 10% 0%, rgba(198, 255, 65, 0.08), transparent 32%),
+      radial-gradient(circle at 85% 12%, rgba(255, 138, 61, 0.08), transparent 28%),
+      linear-gradient(180deg, #080808 0%, #0d0d0d 48%, #080808 100%);
+    color: var(--text);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     position: relative;
     overflow-x: hidden;
-    background:
-      radial-gradient(circle at 84% 12%, rgba(247, 244, 238, 0.14), transparent 22rem),
-      linear-gradient(135deg, var(--vh-bg) 0%, #5400ff 45%, #3200b8 100%);
-    color: var(--vh-ink);
-    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 
-  .vh-noise {
+  .noise {
+    pointer-events: none;
     position: fixed;
     inset: 0;
-    pointer-events: none;
     z-index: 1;
-    opacity: 0.18;
+    opacity: 0.34;
     background-image:
-      linear-gradient(rgba(247, 244, 238, 0.15) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(247, 244, 238, 0.1) 1px, transparent 1px);
-    background-size: 72px 72px;
-    mix-blend-mode: soft-light;
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: linear-gradient(to bottom, black, transparent 90%);
   }
 
-  .vh-header {
-    position: fixed;
-    z-index: 20;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: grid;
-    grid-template-columns: 220px 1fr auto;
-    align-items: start;
-    gap: 32px;
-    padding: 38px 48px;
-    color: var(--vh-paper);
+  .orb {
     pointer-events: none;
+    position: fixed;
+    width: 360px;
+    height: 360px;
+    border-radius: 999px;
+    filter: blur(90px);
+    opacity: 0.18;
+    z-index: 0;
   }
 
-  .vh-header a,
-  .vh-header button {
-    pointer-events: auto;
+  .orb-one {
+    top: 120px;
+    left: -180px;
+    background: var(--accent);
   }
 
-  .vh-logo {
-    color: var(--vh-paper);
+  .orb-two {
+    right: -160px;
+    bottom: 8%;
+    background: var(--orange);
+  }
+
+  .site-header {
+    width: min(var(--max), calc(100% - 48px));
+    margin: 0 auto;
+    padding: 26px 0;
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    display: grid;
+    grid-template-columns: 70px 1fr auto;
+    align-items: center;
+    gap: 24px;
+    background: linear-gradient(180deg, rgba(8,8,8,0.94), rgba(8,8,8,0.7) 70%, transparent);
+    backdrop-filter: blur(14px);
+  }
+
+  .brand {
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--line);
+    color: var(--text);
     text-decoration: none;
-    font-size: clamp(32px, 4vw, 58px);
-    font-weight: 1000;
-    letter-spacing: -0.14em;
-    line-height: 0.72;
-    text-transform: uppercase;
-    display: inline-flex;
-    flex-direction: column;
-    width: max-content;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 0.9;
+    transition: 220ms ease;
   }
 
-  .vh-nav {
+  .brand span {
+    display: block;
+  }
+
+  .brand:hover {
+    color: var(--bg);
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: rotate(-4deg);
+  }
+
+  .main-nav {
     display: flex;
-    gap: 18px;
+    justify-content: center;
+    gap: 28px;
+  }
+
+  .nav-link {
+    color: var(--muted);
+    text-decoration: none;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    font-size: 13px;
+    transition: 220ms ease;
+    white-space: nowrap;
+  }
+
+  .nav-link span {
+    color: rgba(243, 239, 231, 0.34);
+    margin-right: 8px;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--accent);
+  }
+
+  .lang-button {
+    border: 1px solid var(--line);
+    color: var(--text);
+    background: rgba(255,255,255,0.03);
+    min-width: 54px;
+    height: 42px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 220ms ease;
+  }
+
+  .lang-button:hover {
+    color: var(--bg);
+    border-color: var(--accent);
+    background: var(--accent);
+  }
+
+  .section-block {
+    position: relative;
+    z-index: 2;
+    width: min(var(--max), calc(100% - 48px));
+    margin: 0 auto;
+    scroll-margin-top: 110px;
+  }
+
+  .hero {
+    min-height: calc(100vh - 108px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 70px;
+    align-items: center;
+    padding: 58px 0 90px;
+  }
+
+  .eyebrow {
+    margin: 0 0 20px;
+    color: var(--accent);
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero h1 {
+    margin: 0;
+    font-size: clamp(70px, 11vw, 154px);
+    line-height: 0.78;
+    letter-spacing: -0.085em;
+    text-transform: uppercase;
+    max-width: 860px;
+  }
+
+  .hero h1 span {
+    display: block;
+  }
+
+  .hero h2 {
+    margin: 34px 0 0;
+    color: var(--muted);
+    font-size: clamp(18px, 2vw, 26px);
+    font-weight: 500;
+  }
+
+  .hero-text {
+    max-width: 680px;
+    margin: 26px 0 0;
+    color: var(--text);
+    font-size: clamp(20px, 2.6vw, 34px);
+    line-height: 1.18;
+    letter-spacing: -0.04em;
+  }
+
+  .hero-actions {
+    margin-top: 42px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .primary-link,
+  .secondary-link,
+  .contact-button,
+  .project-cta,
+  .row-link {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 850;
+    transition: 220ms ease;
+  }
+
+  .primary-link,
+  .secondary-link,
+  .contact-button {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding-top: 18px;
+    min-height: 50px;
+    padding: 0 20px;
+    border: 1px solid var(--line);
   }
 
-  .vh-nav a {
-    color: rgba(247, 244, 238, 0.72);
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    text-transform: lowercase;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: color 220ms ease;
+  .primary-link {
+    color: var(--bg);
+    background: var(--accent);
+    border-color: var(--accent);
   }
 
-  .vh-nav a span {
-    font-size: 10px;
-    opacity: 0.62;
+  .secondary-link:hover,
+  .contact-button:hover {
+    color: var(--bg);
+    background: var(--accent);
+    border-color: var(--accent);
   }
 
-  .vh-nav a::after {
-    content: "";
-    width: 0;
-    height: 2px;
-    background: var(--vh-paper);
-    transition: width 220ms ease;
+  .primary-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 50px rgba(198, 255, 65, 0.18);
   }
 
-  .vh-nav a:hover,
-  .vh-nav a.is-active {
-    color: var(--vh-paper);
-  }
-
-  .vh-nav a.is-active::after,
-  .vh-nav a:hover::after {
-    width: 34px;
-  }
-
-  .vh-lang {
-    border: 1px solid rgba(247, 244, 238, 0.6);
-    background: rgba(6, 3, 11, 0.1);
-    color: var(--vh-paper);
-    font-weight: 900;
-    border-radius: 999px;
-    padding: 11px 15px;
-    cursor: pointer;
-    backdrop-filter: blur(12px);
-  }
-
-  .vh-hero {
-    position: relative;
-    min-height: 100vh;
-    padding: 190px 48px 48px;
+  .hero-panel {
     display: grid;
-    grid-template-columns: minmax(260px, 0.7fr) minmax(460px, 1.3fr);
-    gap: 48px;
-    align-items: center;
-    z-index: 2;
+    gap: 14px;
   }
 
-  .vh-heroIntro {
-    align-self: start;
-    padding-top: 18vh;
-    max-width: 440px;
-    color: var(--vh-paper);
-  }
-
-  .vh-heroIntro p:first-child {
-    margin: 0 0 28px;
-    font-size: 12px;
-    font-weight: 900;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .vh-heroIntro h1 {
-    margin: 0 0 22px;
-    font-size: clamp(36px, 6vw, 84px);
-    line-height: 0.88;
-    letter-spacing: -0.09em;
-    text-transform: uppercase;
-  }
-
-  .vh-heroIntro p:last-child {
-    margin: 0;
-    max-width: 360px;
-    color: rgba(247, 244, 238, 0.8);
-    font-size: clamp(16px, 1.4vw, 22px);
-    line-height: 1.25;
-  }
-
-  .vh-projectIndex {
+  .portrait-card {
     position: relative;
-    z-index: 3;
-    padding-top: 4vh;
-    margin-left: auto;
-    width: min(800px, 100%);
-  }
-
-  .vh-projectLine {
-    color: var(--vh-ink);
-    text-decoration: none;
-    display: grid;
-    grid-template-columns: 88px 1fr;
-    align-items: start;
-    gap: 16px;
-    margin: -0.25vw 0;
-    width: 100%;
-    opacity: 0.76;
-    transition: transform 220ms ease, opacity 220ms ease, color 220ms ease;
-  }
-
-  .vh-projectLine:hover,
-  .vh-projectLine.is-current {
-    opacity: 1;
-    transform: translateX(-16px);
-    color: var(--vh-paper);
-  }
-
-  .vh-projectYear {
-    font-size: 12px;
-    font-weight: 1000;
-    letter-spacing: -0.06em;
-    padding-top: 1.2vw;
-  }
-
-  .vh-projectName {
-    display: flex;
-    flex-direction: column;
-    font-size: clamp(66px, 9.9vw, 178px);
-    font-weight: 1000;
-    line-height: 0.69;
-    letter-spacing: -0.12em;
-    text-transform: uppercase;
-  }
-
-  .vh-previewCard {
-    position: absolute;
-    z-index: 2;
-    right: 7vw;
-    bottom: 13vh;
-    width: min(34vw, 460px);
-    height: min(42vh, 430px);
+    border: 1px solid var(--line);
+    background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+    padding: 14px;
     overflow: hidden;
-    transform: rotate(-3deg);
-    border: 2px solid rgba(247, 244, 238, 0.55);
-    box-shadow: 0 30px 80px rgba(6, 3, 11, 0.32);
-    mix-blend-mode: multiply;
-    opacity: 0.6;
   }
 
-  .vh-previewCard img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(1) contrast(1.35);
-  }
-
-  .vh-bottomMeta {
+  .portrait-card::before {
+    content: "";
     position: absolute;
-    left: 48px;
-    right: 48px;
-    bottom: 42px;
-    display: grid;
-    grid-template-columns: 210px 240px 1fr;
-    gap: 32px;
-    color: var(--vh-paper);
-    font-size: 13px;
-    line-height: 1.35;
-    z-index: 4;
-  }
-
-  .vh-bottomMeta p {
-    margin: 0;
-  }
-
-  .vh-bottomMeta a {
-    color: var(--vh-paper);
-    text-decoration: none;
-    justify-self: end;
-  }
-
-  .vh-section {
-    position: relative;
+    inset: 14px;
+    border: 1px solid rgba(198, 255, 65, 0.25);
     z-index: 2;
-    width: min(1280px, calc(100% - 96px));
-    margin: 0 auto;
-    padding: 140px 0;
-    border-top: 1px solid rgba(247, 244, 238, 0.32);
-    scroll-margin-top: 120px;
   }
 
-  .vh-sectionLabel {
-    color: var(--vh-paper);
+  .portrait-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1.22;
+    object-fit: cover;
+    filter: grayscale(0.3) contrast(1.05);
+  }
+
+  .availability-card,
+  .mini-terminal {
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.03);
+  }
+
+  .availability-card {
+    padding: 16px;
+    color: var(--text);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .pulse {
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 0 0 6px rgba(198, 255, 65, 0.12);
+  }
+
+  .mini-terminal {
+    padding: 18px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    color: var(--muted);
     font-size: 12px;
-    font-weight: 1000;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 48px;
+    line-height: 1.7;
   }
 
-  .vh-about {
-    display: grid;
-    grid-template-columns: 0.95fr 1.35fr 0.8fr;
-    gap: 54px;
-  }
-
-  .vh-about .vh-sectionLabel {
+  .mini-terminal p {
     margin: 0;
   }
 
-  .vh-aboutLead h2 {
-    margin: 0 0 28px;
-    color: var(--vh-paper);
-    font-size: clamp(32px, 4.6vw, 76px);
-    line-height: 0.94;
+  .section-title {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 30px;
+    align-items: start;
+    margin-bottom: 34px;
+  }
+
+  .section-title p {
+    margin: 14px 0 0;
+    color: var(--accent);
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    font-size: 13px;
+  }
+
+  .section-title h2 {
+    margin: 0;
+    color: var(--text);
+    font-size: clamp(48px, 7vw, 104px);
+    line-height: 0.9;
     letter-spacing: -0.08em;
     text-transform: uppercase;
   }
 
-  .vh-aboutLead p {
-    max-width: 680px;
-    margin: 0 0 20px;
-    color: rgba(247, 244, 238, 0.78);
-    font-size: 18px;
-    line-height: 1.55;
+  .expertise-section,
+  .work-section,
+  .experience-section,
+  .contact-section {
+    padding: 92px 0;
+    border-top: 1px solid var(--line);
   }
 
-  .vh-infoPanel {
-    align-self: start;
+  .expertise-grid {
     display: grid;
-    gap: 30px;
-    color: var(--vh-paper);
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--line);
   }
 
-  .vh-infoPanel img {
-    width: 112px;
-    height: 112px;
-    object-fit: cover;
-    border-radius: 50%;
-    filter: grayscale(1) contrast(1.2);
-    border: 2px solid rgba(247, 244, 238, 0.72);
+  .expertise-card {
+    min-height: 360px;
+    padding: 32px;
+    border-right: 1px solid var(--line);
+    background: rgba(255,255,255,0.02);
+    display: flex;
+    flex-direction: column;
   }
 
-  .vh-infoBlock h3 {
-    margin: 0 0 12px;
-    font-size: 12px;
-    font-weight: 1000;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+  .expertise-card:last-child {
+    border-right: none;
   }
 
-  .vh-infoBlock ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 6px;
-  }
-
-  .vh-infoBlock li {
-    color: rgba(247, 244, 238, 0.78);
+  .card-number,
+  .project-number {
+    color: var(--accent);
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
     font-size: 13px;
-    line-height: 1.35;
   }
 
-  .vh-experienceList {
-    display: grid;
-    gap: 0;
-  }
-
-  .vh-experienceCard {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 46px;
-    padding: 36px 0;
-    border-top: 1px solid rgba(247, 244, 238, 0.26);
-    color: var(--vh-paper);
-  }
-
-  .vh-experienceCard:last-child {
-    border-bottom: 1px solid rgba(247, 244, 238, 0.26);
-  }
-
-  .vh-experienceCard > span {
-    font-size: 13px;
-    font-weight: 1000;
-    text-transform: uppercase;
-  }
-
-  .vh-experienceCard h3 {
-    margin: 0 0 8px;
-    font-size: clamp(28px, 3.2vw, 48px);
+  .expertise-card h3 {
+    margin: 50px 0 20px;
+    color: var(--text);
+    font-size: clamp(30px, 4vw, 48px);
     line-height: 0.95;
-    letter-spacing: -0.07em;
-    text-transform: uppercase;
+    letter-spacing: -0.06em;
   }
 
-  .vh-company {
-    margin: 0 0 14px !important;
-    color: var(--vh-paper) !important;
-    font-weight: 800;
+  .expertise-card h3 span {
+    display: block;
   }
 
-  .vh-experienceCard p,
-  .vh-caseContent p,
-  .vh-contact p {
+  .expertise-card p {
     margin: 0;
-    color: rgba(247, 244, 238, 0.74);
-    font-size: 16px;
-    line-height: 1.55;
-    max-width: 720px;
+    color: var(--muted);
+    line-height: 1.7;
   }
 
-  .vh-tags {
+  .tag-row {
+    margin-top: auto;
+    padding-top: 26px;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-top: 22px;
   }
 
-  .vh-tags span {
-    color: var(--vh-paper);
-    border: 1px solid rgba(247, 244, 238, 0.42);
+  .tag-row span {
+    border: 1px solid rgba(243, 239, 231, 0.14);
+    color: var(--text);
+    background: rgba(255,255,255,0.03);
     border-radius: 999px;
-    padding: 7px 11px;
+    padding: 7px 10px;
     font-size: 12px;
-    font-weight: 900;
+    font-weight: 750;
   }
 
-  .vh-cases {
+  .tag-row.compact {
+    margin-top: 0;
+    padding-top: 10px;
+  }
+
+  .quote-card {
+    margin: 28px 0 0 auto;
+    max-width: 720px;
+    border-left: 3px solid var(--accent);
+    padding: 24px 0 24px 28px;
+    color: var(--text);
+    font-size: clamp(24px, 3.2vw, 42px);
+    line-height: 1.1;
+    letter-spacing: -0.055em;
+  }
+
+  .work-intro {
     display: grid;
-    gap: 80px;
+    grid-template-columns: 1fr 400px;
+    gap: 40px;
+    align-items: end;
+    margin-bottom: 44px;
   }
 
-  .vh-caseCard {
+  .work-intro .section-title {
+    margin-bottom: 0;
+  }
+
+  .work-intro p:last-child {
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.7;
+    margin: 0 0 10px;
+  }
+
+  .featured-project {
+    border: 1px solid var(--line);
     display: grid;
-    grid-template-columns: minmax(280px, 0.9fr) minmax(320px, 1.1fr);
-    gap: 46px;
-    align-items: center;
-    padding: 0 0 80px;
-    border-bottom: 1px solid rgba(247, 244, 238, 0.26);
+    grid-template-columns: 55% 45%;
+    min-height: 480px;
+    background: rgba(255,255,255,0.025);
+    margin-bottom: 24px;
   }
 
-  .vh-caseMedia {
+  .featured-image {
+    min-height: 100%;
     overflow: hidden;
-    min-height: 360px;
-    background: var(--vh-ink);
-    clip-path: polygon(0 0, 100% 0, 100% 82%, 87% 100%, 0 100%);
+    border-right: 1px solid var(--line);
+    background: var(--bg-soft);
   }
 
-  .vh-caseMedia img {
+  .featured-image img {
     width: 100%;
     height: 100%;
-    min-height: 360px;
-    object-fit: cover;
     display: block;
-    filter: grayscale(1) contrast(1.15);
-    mix-blend-mode: luminosity;
-    opacity: 0.82;
-    transition: transform 420ms ease, filter 420ms ease, opacity 420ms ease;
+    object-fit: cover;
+    transform: scale(1.01);
+    transition: 420ms ease;
   }
 
-  .vh-caseCard:hover .vh-caseMedia img {
-    transform: scale(1.05);
-    filter: grayscale(0) contrast(1);
-    opacity: 1;
+  .featured-project:hover img {
+    transform: scale(1.06);
   }
 
-  .vh-caseTopline {
+  .featured-content {
+    padding: 38px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 18px;
-    color: var(--vh-paper);
-    font-size: 12px;
-    font-weight: 1000;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    flex-direction: column;
   }
 
-  .vh-caseContent h3 {
-    margin: 0 0 22px;
-    color: var(--vh-ink);
-    font-size: clamp(48px, 7vw, 112px);
-    line-height: 0.78;
-    letter-spacing: -0.11em;
-    text-transform: uppercase;
+  .featured-content h3 {
+    margin: 0;
+    color: var(--text);
+    font-size: clamp(38px, 5vw, 72px);
+    line-height: 0.9;
+    letter-spacing: -0.075em;
   }
 
-  .vh-caseLink {
+  .featured-content p:not(.eyebrow) {
+    margin: 24px 0 0;
+    color: var(--muted);
+    line-height: 1.75;
+    font-size: 16px;
+  }
+
+  .project-cta {
+    margin-top: 30px;
+    color: var(--accent);
     display: inline-flex;
     align-items: center;
+    gap: 8px;
+  }
+
+  .project-cta:hover,
+  .row-link:hover {
+    color: var(--orange);
+  }
+
+  .project-list {
+    border-top: 1px solid var(--line);
+  }
+
+  .project-row {
+    display: grid;
+    grid-template-columns: 70px 190px minmax(0, 1fr) 120px;
+    gap: 24px;
+    align-items: center;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .project-thumb {
+    height: 120px;
+    overflow: hidden;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+  }
+
+  .project-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: 320ms ease;
+  }
+
+  .project-row:hover .project-thumb img {
+    transform: scale(1.07);
+  }
+
+  .project-meta {
+    display: flex;
     gap: 10px;
-    margin-top: 26px;
-    color: var(--vh-paper);
-    text-decoration: none;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .project-meta span {
+    color: var(--accent);
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    font-size: 12px;
+  }
+
+  .project-info h3 {
+    margin: 0;
+    color: var(--text);
+    font-size: clamp(24px, 3vw, 42px);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+  }
+
+  .project-info p {
+    max-width: 650px;
+    margin: 12px 0 0;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .row-link {
+    color: var(--text);
+    font-size: 14px;
+    text-align: right;
+  }
+
+  .experience-list {
+    border-top: 1px solid var(--line);
+  }
+
+  .experience-card {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 34px;
+    padding: 34px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .experience-date {
+    color: var(--accent);
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
     font-size: 13px;
-    font-weight: 1000;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border-bottom: 2px solid var(--vh-paper);
-    padding-bottom: 8px;
   }
 
-  .vh-caseLink::after {
-    content: "→";
+  .experience-copy h3 {
+    margin: 0;
+    color: var(--text);
+    font-size: clamp(28px, 4vw, 54px);
+    line-height: 0.95;
+    letter-spacing: -0.07em;
   }
 
-  .vh-caseLinkDisabled {
-    opacity: 0.72;
-    border-bottom-style: dotted;
+  .company {
+    margin: 14px 0 0;
+    color: var(--text);
+    font-weight: 800;
   }
 
-  .vh-contact {
-    min-height: 72vh;
+  .location {
+    margin: 4px 0 0;
+    color: var(--muted);
+  }
+
+  .experience-description {
+    max-width: 780px;
+    margin: 18px 0 0;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  .contact-section {
+    min-height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-bottom: 120px;
   }
 
-  .vh-contact h2 {
-    margin: 0 0 26px;
-    color: var(--vh-paper);
-    max-width: 920px;
-    font-size: clamp(62px, 11vw, 184px);
-    line-height: 0.72;
-    letter-spacing: -0.13em;
-    text-transform: uppercase;
+  .contact-section h2 {
+    max-width: 980px;
+    margin: 0;
+    color: var(--text);
+    font-size: clamp(44px, 7vw, 104px);
+    line-height: 0.95;
+    letter-spacing: -0.08em;
   }
 
-  .vh-contact p {
-    max-width: 600px;
-  }
-
-  .vh-cta {
-    width: max-content;
+  .contact-button {
+    width: fit-content;
     margin-top: 34px;
-    color: var(--vh-ink);
-    background: var(--vh-paper);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 1000;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 17px 22px;
-    border: 2px solid var(--vh-paper);
-    transition: transform 220ms ease, background 220ms ease, color 220ms ease;
   }
 
-  .vh-cta:hover {
-    transform: translateY(-4px);
-    background: transparent;
-    color: var(--vh-paper);
-  }
-
-  .vh-footer {
-    position: relative;
-    z-index: 2;
-    width: min(1280px, calc(100% - 96px));
-    margin: 0 auto;
-    padding: 28px 0 42px;
-    border-top: 1px solid rgba(247, 244, 238, 0.32);
+  .socials {
+    margin-top: 58px;
     display: flex;
-    justify-content: space-between;
-    gap: 24px;
-    color: rgba(247, 244, 238, 0.72);
-    font-size: 12px;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .socials a {
+    color: var(--muted);
+    text-decoration: none;
     font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+  }
+
+  .socials a:hover {
+    color: var(--accent);
   }
 
   @media (max-width: 980px) {
-    .vh-header {
-      grid-template-columns: 1fr auto;
-      padding: 26px 22px;
+    .site-header {
+      grid-template-columns: 60px 1fr auto;
     }
 
-    .vh-nav {
-      display: none;
+    .main-nav {
+      justify-content: flex-start;
+      overflow-x: auto;
+      gap: 18px;
+      padding: 8px 0;
     }
 
-    .vh-hero {
-      grid-template-columns: 1fr;
-      padding: 152px 22px 132px;
-      gap: 40px;
-    }
-
-    .vh-heroIntro {
-      padding-top: 0;
-    }
-
-    .vh-projectIndex {
-      width: 100%;
-      margin-left: 0;
-    }
-
-    .vh-projectLine {
-      grid-template-columns: 60px 1fr;
-      transform: none !important;
-    }
-
-    .vh-projectName {
-      font-size: clamp(64px, 20vw, 136px);
-    }
-
-    .vh-previewCard {
-      position: relative;
-      right: auto;
-      bottom: auto;
-      width: min(100%, 520px);
-      height: 300px;
-      transform: rotate(-2deg);
-      margin-top: -10px;
-    }
-
-    .vh-bottomMeta {
-      left: 22px;
-      right: 22px;
-      bottom: 28px;
-      grid-template-columns: 1fr;
-      gap: 8px;
-    }
-
-    .vh-bottomMeta a {
-      justify-self: start;
-    }
-
-    .vh-section,
-    .vh-footer {
-      width: calc(100% - 44px);
-    }
-
-    .vh-about,
-    .vh-experienceCard,
-    .vh-caseCard {
+    .hero,
+    .work-intro,
+    .featured-project {
       grid-template-columns: 1fr;
     }
 
-    .vh-about .vh-sectionLabel {
-      margin-bottom: 8px;
+    .hero {
+      gap: 42px;
+      padding-top: 40px;
     }
 
-    .vh-caseMedia,
-    .vh-caseMedia img {
-      min-height: 280px;
+    .hero-panel {
+      max-width: 420px;
     }
 
-    .vh-caseContent h3 {
-      color: var(--vh-paper);
+    .expertise-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .expertise-card {
+      min-height: auto;
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .expertise-card:last-child {
+      border-bottom: 0;
+    }
+
+    .featured-image {
+      min-height: 320px;
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project-row {
+      grid-template-columns: 48px 150px 1fr;
+    }
+
+    .row-link {
+      grid-column: 3;
+      text-align: left;
     }
   }
 
-  @media (max-width: 640px) {
-    .vh-logo {
-      font-size: 34px;
+  @media (max-width: 720px) {
+    .site-header,
+    .section-block {
+      width: min(100% - 32px, var(--max));
     }
 
-    .vh-lang {
-      padding: 9px 12px;
+    .site-header {
+      grid-template-columns: 52px 1fr 48px;
+      gap: 12px;
+      padding: 18px 0;
     }
 
-    .vh-heroIntro h1 {
-      font-size: 48px;
+    .brand {
+      width: 46px;
+      height: 46px;
     }
 
-    .vh-projectYear {
-      padding-top: 12px;
+    .nav-link {
+      font-size: 12px;
     }
 
-    .vh-projectName {
-      letter-spacing: -0.1em;
+    .nav-link span {
+      display: none;
     }
 
-    .vh-section {
-      padding: 96px 0;
+    .hero h1 {
+      font-size: clamp(58px, 19vw, 92px);
     }
 
-    .vh-aboutLead h2,
-    .vh-contact h2 {
-      letter-spacing: -0.1em;
+    .hero-text {
+      font-size: 23px;
     }
 
-    .vh-cases {
-      gap: 58px;
+    .primary-link,
+    .secondary-link,
+    .contact-button {
+      width: 100%;
     }
 
-    .vh-caseCard {
-      padding-bottom: 58px;
-      gap: 26px;
+    .section-title {
+      grid-template-columns: 1fr;
+      gap: 10px;
     }
 
-    .vh-footer {
-      flex-direction: column;
+    .expertise-section,
+    .work-section,
+    .experience-section,
+    .contact-section {
+      padding: 70px 0;
+    }
+
+    .project-row {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .project-thumb {
+      height: 210px;
+    }
+
+    .row-link {
+      grid-column: auto;
+    }
+
+    .experience-card {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .featured-content,
+    .expertise-card {
+      padding: 24px;
     }
   }
 `;
